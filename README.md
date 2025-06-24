@@ -1,3 +1,22 @@
+# wins-tracker
+
+Attempt 2 in coding with claude.ai (basic plan)
+
+Project Goals:
+(1) Learn typescript, react, db
+(2) Identify whether daily progress is values-driven.
+(3) Pair program with claude.ai (note: attempt #1 was in artoo-tracker which was vibes only)
+
+### Setup
+
+1. Create project directory
+2. Initialize React + Typescript Project
+   `npx create-react-app . --template typescript`
+3. Build locally
+   `npm start`
+
+## Generated Instructions below
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
