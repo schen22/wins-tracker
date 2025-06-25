@@ -9,6 +9,32 @@ Project Goals:
 
 - following [agent-rules](https://github.com/steipete/agent-rules) to reuse rules for Claude
 
+## Claude Code generated todo based on my prompt + goals
+
+### MVP Core Features (Start Simple)
+
+#### Essential MVP Features:
+
+1. Add a "win" - Simple form to log daily achievements
+2. Categorize wins - Assign to life areas (puppy, career, friends, etc.)
+3. View recent wins - List of recent entries
+4. Basic stats - Count wins per category
+
+#### Phase 2 Features:
+
+- Values alignment scoring
+- Progress trends/visualization
+- Multi-user support
+
+Learning-First Component Breakdown
+
+Start with these 4 core components:
+
+1. WinForm - Learn forms, state management, validation
+2. WinList - Learn data rendering, keys, conditional rendering
+3. CategoryFilter - Learn event handling, state lifting
+4. StatsDisplay - Learn data transformation, basic calculations
+
 ### Setup
 
 1. Create project directory
