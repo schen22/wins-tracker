@@ -1,5 +1,5 @@
 import React from 'react';
-import WinForm from './features/wins/components/WinForm';
+import ProgressForm from './features/wins/components/ProgressForm';
 
 function App() {
   return (
@@ -12,7 +12,12 @@ function App() {
       </header>
       
       <main className="max-w-4xl mx-auto px-4 py-8">
-        <WinForm />
+        <ProgressForm 
+          onSubmit={(progress) => {
+            console.log('New progress:', progress);
+            // TODO: Add to state management
+          }}
+        />
       </main>
     </div>
   );
