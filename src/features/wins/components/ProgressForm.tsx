@@ -46,8 +46,12 @@ function ProgressForm({ onSubmit }: ProgressFormProps) {
   return (
     <div className="max-w-lg mx-auto mt-8 p-8 bg-white rounded-xl shadow-lg border border-gray-100">
       <div className="text-center mb-6">
-        <h2 className="text-3xl font-bold text-gray-800 mb-2">📝 Add Progress</h2>
-        <p className="text-gray-600 text-sm">Track what happened and how you feel about it</p>
+        <h2 className="text-3xl font-bold text-gray-800 mb-2">
+          📝 Add Progress
+        </h2>
+        <p className="text-gray-600 text-sm">
+          Track what happened and how you feel about it
+        </p>
       </div>
 
       <form onSubmit={handleSubmit} className="space-y-6">
@@ -76,11 +80,13 @@ function ProgressForm({ onSubmit }: ProgressFormProps) {
             🤔 Is this...
           </label>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-            <label className={`flex items-center p-3 rounded-lg border-2 cursor-pointer transition-all ${
-              type === "fact" 
-                ? "border-blue-500 bg-blue-100 text-blue-800" 
-                : "border-gray-200 bg-white hover:border-gray-300"
-            }`}>
+            <label
+              className={`flex items-center p-3 rounded-lg border-2 cursor-pointer transition-all ${
+                type === "fact"
+                  ? "border-blue-500 bg-blue-100 text-blue-800"
+                  : "border-gray-200 bg-white hover:border-gray-300"
+              }`}
+            >
               <input
                 type="radio"
                 name="type"
@@ -89,13 +95,15 @@ function ProgressForm({ onSubmit }: ProgressFormProps) {
                 onChange={e => setType(e.target.value as ProgressType)}
                 className="mr-3 text-blue-600"
               />
-              <span className="font-medium">📋 What happened (fact)</span>
+              <span className="font-medium">📋 What actually happened</span>
             </label>
-            <label className={`flex items-center p-3 rounded-lg border-2 cursor-pointer transition-all ${
-              type === "feeling" 
-                ? "border-blue-500 bg-blue-100 text-blue-800" 
-                : "border-gray-200 bg-white hover:border-gray-300"
-            }`}>
+            <label
+              className={`flex items-center p-3 rounded-lg border-2 cursor-pointer transition-all ${
+                type === "feeling"
+                  ? "border-blue-500 bg-blue-100 text-blue-800"
+                  : "border-gray-200 bg-white hover:border-gray-300"
+              }`}
+            >
               <input
                 type="radio"
                 name="type"
@@ -159,7 +167,11 @@ function ProgressForm({ onSubmit }: ProgressFormProps) {
 
         {/* Submit button */}
         <div className="pt-2">
-          <Button type="submit" variant="primary" className="w-full py-4 text-lg font-semibold shadow-lg hover:shadow-xl transition-shadow">
+          <Button
+            type="submit"
+            variant="primary"
+            className="w-full py-4 text-lg font-semibold shadow-lg hover:shadow-xl transition-shadow"
+          >
             ✨ Add Progress
           </Button>
         </div>
