@@ -1,13 +1,30 @@
-# wins-tracker
+# Wins Tracker
 
-Attempt 2 in coding with claude.ai (basic plan)
+A React + TypeScript application for tracking daily achievements and identifying values-driven progress.
 
-Project Goals:
-(1) Learn typescript, react, db
-(2) Identify whether daily progress is values-driven.
-(3) Pair program with Claude Code (note: attempt #1 was in artoo-tracker which was vibes only)
+## Project Goals
+1. Learn TypeScript, React, and database integration
+2. Identify whether daily progress is values-driven
+3. Pair program with Claude Code for hands-on learning
 
-- following [agent-rules](https://github.com/steipete/agent-rules) to reuse rules for Claude
+## Architecture
+
+View the [complete architecture diagram](docs/architecture.md) showing component relationships and data flow.
+
+**Core Components:**
+- **WinForm** - Add daily achievements
+- **WinList** - Display recent wins
+- **CategoryFilter** - Filter by life areas (puppy, career, friends, family, volunteering)
+- **Summary** - Progress insights and values-based reflection
+
+## Documentation
+
+- 📋 [Architecture](docs/architecture.md) - Component diagrams and system overview
+- 🔧 [Development Specs](.claude/) - Modular development guidelines
+  - [Code Analysis](.claude/code-analysis.md)
+  - [Commit Standards](.claude/commit.md)
+  - [Documentation](.claude/create-docs.md)
+  - [Code Quality](.claude/code-quality.md)
 
 ## Claude Code generated todo based on my prompt + goals
 
