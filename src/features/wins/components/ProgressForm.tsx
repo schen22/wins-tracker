@@ -134,21 +134,21 @@ function ProgressForm({ onSubmit }: ProgressFormProps) {
         </div>
 
         {/* Emotion selection */}
-        <div>
+        <div className="bg-purple-50 p-4 rounded-lg">
           <label
             htmlFor="emotion"
-            className="block text-sm font-medium text-gray-700 mb-1"
+            className="block text-sm font-semibold text-gray-700 mb-2"
           >
-            How are you feeling about this?
+            😊 How are you feeling about this?
           </label>
           <select
             id="emotion"
             value={emotion}
             onChange={e => setEmotion(e.target.value as Emotion)}
-            className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-purple-500 bg-white transition-colors"
             required
           >
-            <option value="">Select an emotion</option>
+            <option value="">Choose your emotion</option>
             {EMOTIONS.map(emo => (
               <option key={emo} value={emo}>
                 {emo.charAt(0).toUpperCase() + emo.slice(1)}
@@ -158,9 +158,11 @@ function ProgressForm({ onSubmit }: ProgressFormProps) {
         </div>
 
         {/* Submit button */}
-        <Button type="submit" variant="primary" className="w-full">
-          Add Progress
-        </Button>
+        <div className="pt-2">
+          <Button type="submit" variant="primary" className="w-full py-4 text-lg font-semibold shadow-lg hover:shadow-xl transition-shadow">
+            ✨ Add Progress
+          </Button>
+        </div>
       </form>
     </div>
   );
