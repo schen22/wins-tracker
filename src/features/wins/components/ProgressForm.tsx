@@ -1,19 +1,14 @@
 import React, { useState } from "react";
-import {
-  CATEGORIES,
-  EMOTIONS,
-  Category,
-  Emotion,
-  ProgressType
-} from "../types";
+import { CATEGORIES, Category, Emotion, ProgressType } from "../types";
 import Button from "../../../components/common/Button";
+import EmotionSelector from "./EmotionSelector";
 
 interface ProgressFormProps {
   onSubmit?: (progress: {
     text: string;
     category: Category;
     type: ProgressType;
-    emotion: Emotion;
+    emotions: Emotion[];
   }) => void;
 }
 
@@ -21,12 +16,12 @@ function ProgressForm({ onSubmit }: ProgressFormProps) {
   const [text, setText] = useState("");
   const [category, setCategory] = useState<Category | "">("");
   const [type, setType] = useState<ProgressType>("fact");
-  const [emotion, setEmotion] = useState<Emotion | "">("");
+  const [emotions, setEmotions] = useState<Emotion[]>([]);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
 
-    if (!text.trim() || !category || !emotion) {
+    if (!text.trim() || !category || emotions.length === 0) {
       return; // Basic validation
     }
 
@@ -34,19 +29,19 @@ function ProgressForm({ onSubmit }: ProgressFormProps) {
       text: text.trim(),
       category: category as Category,
       type,
-      emotion: emotion as Emotion
+      emotions
     });
 
     // Reset form
     setText("");
     setCategory("");
-    setEmotion("");
+    setEmotions([]);
   };
 
   return (
-    <div className="max-w-lg mx-auto mt-8 p-8 bg-white rounded-xl shadow-lg border border-gray-100">
+    <div className="max-w-xl mx-auto mt-8 p-8 bg-white rounded-xl shadow-lg border border-gray-100">
       <div className="text-center mb-6">
-        <h2 className="text-3xl font-bold text-gray-800 mb-2">
+        <h2 className="text-2xl font-bold text-gray-800 mb-2">
           📝 Add Progress
         </h2>
         <p className="text-gray-600 text-sm">
@@ -68,7 +63,7 @@ function ProgressForm({ onSubmit }: ProgressFormProps) {
             value={text}
             onChange={e => setText(e.target.value)}
             placeholder="e.g., Completed project milestone, or Feeling anxious about upcoming presentation"
-            className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 resize-none transition-colors"
+            className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 resize-none transition-colors text-sm"
             rows={4}
             required
           />
@@ -81,7 +76,7 @@ function ProgressForm({ onSubmit }: ProgressFormProps) {
           </label>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
             <label
-              className={`flex items-center p-3 rounded-lg border-2 cursor-pointer transition-all ${
+              className={`flex items-start p-4 rounded-lg border-2 cursor-pointer transition-all min-h-[4rem] ${
                 type === "fact"
                   ? "border-blue-500 bg-blue-100 text-blue-800"
                   : "border-gray-200 bg-white hover:border-gray-300"
@@ -93,12 +88,14 @@ function ProgressForm({ onSubmit }: ProgressFormProps) {
                 value="fact"
                 checked={type === "fact"}
                 onChange={e => setType(e.target.value as ProgressType)}
-                className="mr-3 text-blue-600"
+                className="mr-3 mt-1 text-blue-600 flex-shrink-0"
               />
-              <span className="font-medium">📋 What actually happened</span>
+              <span className="text-sm font-medium leading-relaxed">
+                📋 What actually happened
+              </span>
             </label>
             <label
-              className={`flex items-center p-3 rounded-lg border-2 cursor-pointer transition-all ${
+              className={`flex items-start p-4 rounded-lg border-2 cursor-pointer transition-all min-h-[4rem] ${
                 type === "feeling"
                   ? "border-blue-500 bg-blue-100 text-blue-800"
                   : "border-gray-200 bg-white hover:border-gray-300"
@@ -110,9 +107,11 @@ function ProgressForm({ onSubmit }: ProgressFormProps) {
                 value="feeling"
                 checked={type === "feeling"}
                 onChange={e => setType(e.target.value as ProgressType)}
-                className="mr-3 text-blue-600"
+                className="mr-3 mt-1 text-blue-600 flex-shrink-0"
               />
-              <span className="font-medium">💭 How you feel</span>
+              <span className="text-sm font-medium leading-relaxed">
+                💭 What you perceive
+              </span>
             </label>
           </div>
         </div>
@@ -129,7 +128,7 @@ function ProgressForm({ onSubmit }: ProgressFormProps) {
             id="category"
             value={category}
             onChange={e => setCategory(e.target.value as Category)}
-            className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-green-500 bg-white transition-colors"
+            className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-green-500 bg-white transition-colors text-sm"
             required
           >
             <option value="">Choose your life area</option>
@@ -143,26 +142,7 @@ function ProgressForm({ onSubmit }: ProgressFormProps) {
 
         {/* Emotion selection */}
         <div className="bg-purple-50 p-4 rounded-lg">
-          <label
-            htmlFor="emotion"
-            className="block text-sm font-semibold text-gray-700 mb-2"
-          >
-            😊 How are you feeling about this?
-          </label>
-          <select
-            id="emotion"
-            value={emotion}
-            onChange={e => setEmotion(e.target.value as Emotion)}
-            className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-purple-500 bg-white transition-colors"
-            required
-          >
-            <option value="">Choose your emotion</option>
-            {EMOTIONS.map(emo => (
-              <option key={emo} value={emo}>
-                {emo.charAt(0).toUpperCase() + emo.slice(1)}
-              </option>
-            ))}
-          </select>
+          <EmotionSelector selectedEmotions={emotions} onChange={setEmotions} />
         </div>
 
         {/* Submit button */}
@@ -170,7 +150,7 @@ function ProgressForm({ onSubmit }: ProgressFormProps) {
           <Button
             type="submit"
             variant="primary"
-            className="w-full py-4 text-lg font-semibold shadow-lg hover:shadow-xl transition-shadow"
+            className="w-full py-3 text-base font-semibold shadow-lg hover:shadow-xl transition-shadow"
           >
             ✨ Add Progress
           </Button>
