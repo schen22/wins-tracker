@@ -1,16 +1,19 @@
-import React from 'react';
-import { CATEGORIES } from '../types';
+import React from "react";
+import { CATEGORIES } from "../types";
 
 // Start simple: just the HTML structure, no functionality yet
 function WinForm() {
   return (
     <div className="max-w-md mx-auto mt-8 p-6 bg-white rounded-lg shadow-md">
       <h2 className="text-2xl font-bold mb-4 text-gray-800">Add a Win</h2>
-      
+
       <form className="space-y-4">
         {/* Win description input */}
         <div>
-          <label htmlFor="win-text" className="block text-sm font-medium text-gray-700 mb-1">
+          <label
+            htmlFor="win-text"
+            className="block text-sm font-medium text-gray-700 mb-1"
+          >
             What did you accomplish?
           </label>
           <input
@@ -23,7 +26,10 @@ function WinForm() {
 
         {/* Category selection */}
         <div>
-          <label htmlFor="category" className="block text-sm font-medium text-gray-700 mb-1">
+          <label
+            htmlFor="category"
+            className="block text-sm font-medium text-gray-700 mb-1"
+          >
             Category
           </label>
           <select

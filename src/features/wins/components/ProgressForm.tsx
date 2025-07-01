@@ -42,9 +42,7 @@ function ProgressForm({ onSubmit }: ProgressFormProps) {
   return (
     <div className="max-w-xl mx-auto mt-8 p-8 bg-white rounded-xl shadow-lg border border-gray-100">
       <div className="text-center mb-6">
-        <h2 className={`${typography.formTitle} mb-2`}>
-          📝 Add Progress
-        </h2>
+        <h2 className={`${typography.formTitle} mb-2`}>📝 Add Progress</h2>
         <p className={typography.formSubtitle}>
           Track what happened and how you feel about it
         </p>
