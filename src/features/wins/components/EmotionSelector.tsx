@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { EMOTION_WHEEL, Emotion, CoreEmotion } from "../types";
+import { typography } from "../../../styles/typography";
 
 interface EmotionSelectorProps {
   selectedEmotions: Emotion[];
@@ -59,14 +60,14 @@ function EmotionSelector({
 
   return (
     <div className={`space-y-3 ${className}`}>
-      <div className="text-sm font-semibold text-gray-700 mb-3">
+      <div className={`${typography.formHeader} mb-3`}>
         💛 How are you feeling? (Select all that apply)
       </div>
 
       {/* Selected emotions display */}
       {selectedEmotions.length > 0 && (
         <div className="bg-white p-3 rounded-lg border border-gray-200">
-          <div className="text-xs font-medium text-gray-600 mb-2">
+          <div className={`${typography.helperText} mb-2`}>
             Selected emotions:
           </div>
           <div className="flex flex-wrap gap-2">
@@ -123,7 +124,7 @@ function EmotionSelector({
                       <span className="text-lg flex-shrink-0 leading-none">
                         {CORE_EMOTION_EMOJIS[category]}
                       </span>
-                      <span className="capitalize text-sm font-medium break-words">
+                      <span className={`capitalize ${typography.formContent} break-words`}>
                         {category}
                       </span>
                     </span>
@@ -138,7 +139,7 @@ function EmotionSelector({
 
                 {/* Show selected sub-emotions count */}
                 {hasSelectedSubEmotions && (
-                  <div className="text-xs mt-2 ml-8 opacity-75">
+                  <div className={`${typography.helperText} mt-2 ml-8 opacity-75`}>
                     {emotions.filter(e => selectedEmotions.includes(e)).length}{" "}
                     secondary emotions selected
                   </div>
@@ -164,7 +165,7 @@ function EmotionSelector({
                           onChange={() => toggleEmotion(emotion)}
                           className="mr-3 text-blue-600 flex-shrink-0"
                         />
-                        <span className="text-sm capitalize break-words">
+                        <span className={`${typography.formContent} capitalize break-words`}>
                           {emotion}
                         </span>
                       </label>

@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { CATEGORIES, Category, Emotion, ProgressType } from "../types";
 import Button from "../../../components/common/Button";
 import EmotionSelector from "./EmotionSelector";
+import { typography } from "../../../styles/typography";
 
 interface ProgressFormProps {
   onSubmit?: (progress: {
@@ -41,10 +42,10 @@ function ProgressForm({ onSubmit }: ProgressFormProps) {
   return (
     <div className="max-w-xl mx-auto mt-8 p-8 bg-white rounded-xl shadow-lg border border-gray-100">
       <div className="text-center mb-6">
-        <h2 className="text-2xl font-bold text-gray-800 mb-2">
+        <h2 className={`${typography.formTitle} mb-2`}>
           📝 Add Progress
         </h2>
-        <p className="text-gray-600 text-sm">
+        <p className={typography.formSubtitle}>
           Track what happened and how you feel about it
         </p>
       </div>
@@ -54,7 +55,7 @@ function ProgressForm({ onSubmit }: ProgressFormProps) {
         <div className="bg-gray-50 p-4 rounded-lg">
           <label
             htmlFor="progress-text"
-            className="block text-sm font-semibold text-gray-700 mb-2"
+            className={`block ${typography.formHeader} mb-2`}
           >
             💬 Describe your progress
           </label>
@@ -71,7 +72,7 @@ function ProgressForm({ onSubmit }: ProgressFormProps) {
 
         {/* Type selection - Fact vs Feeling */}
         <div className="bg-blue-50 p-4 rounded-lg">
-          <label className="block text-sm font-semibold text-gray-700 mb-3">
+          <label className={`block ${typography.formHeader} mb-3`}>
             🤔 Is this...
           </label>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
@@ -90,7 +91,7 @@ function ProgressForm({ onSubmit }: ProgressFormProps) {
                 onChange={e => setType(e.target.value as ProgressType)}
                 className="mr-3 mt-1 text-blue-600 flex-shrink-0"
               />
-              <span className="text-sm font-medium leading-relaxed">
+              <span className={`${typography.formContent} leading-relaxed`}>
                 📋 What actually happened
               </span>
             </label>
@@ -109,7 +110,7 @@ function ProgressForm({ onSubmit }: ProgressFormProps) {
                 onChange={e => setType(e.target.value as ProgressType)}
                 className="mr-3 mt-1 text-blue-600 flex-shrink-0"
               />
-              <span className="text-sm font-medium leading-relaxed">
+              <span className={`${typography.formContent} leading-relaxed`}>
                 💭 What you perceive
               </span>
             </label>
@@ -120,7 +121,7 @@ function ProgressForm({ onSubmit }: ProgressFormProps) {
         <div className="bg-green-50 p-4 rounded-lg">
           <label
             htmlFor="category"
-            className="block text-sm font-semibold text-gray-700 mb-2"
+            className={`block ${typography.formHeader} mb-2`}
           >
             🏷️ Life Area
           </label>
